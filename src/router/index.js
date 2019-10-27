@@ -162,9 +162,16 @@ export const asyncRoutes = [
         component: () => import('@/pages/waiter/List'),
         name: 'waiter',
         meta: { title: '员工管理', icon: 'peoples' }
+      },
+      {
+        path: 'details',
+        hidden:true,
+        component: () => import('@/pages/waiter/Details'),
+        name: 'details',
+        meta: { title: '员工详情', icon: 'peoples' }
       }
     ]
-  },
+  } ,
   {
     path: '/comment',
     component: Layout,

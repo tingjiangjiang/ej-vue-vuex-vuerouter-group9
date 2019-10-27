@@ -74,6 +74,7 @@ export default {
     async saveOrUpdateCustomer({commit,dispatch},payload){
       // 1. 保存或更新
       let response = await post("/customer/saveOrUpdate",payload)
+      console.log("123");
       // 2. 刷新页面
       dispatch("findAllCustomers");
       // 3. 关闭模态框

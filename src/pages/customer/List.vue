@@ -10,14 +10,14 @@
       <el-table :data="customers" size="mini"  @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="id" label="编号"></el-table-column>
-        <el-table-column prop="realname" label="姓名"></el-table-column>
-        <el-table-column prop="telephone" label="手机号"></el-table-column>
-        <el-table-column prop="status" label="状态"></el-table-column>
-        <el-table-column label="操作">
+        <el-table-column prop="realname" label="姓名" align="center"></el-table-column>
+        <el-table-column prop="telephone" label="手机号" align="center"></el-table-column>
+        <el-table-column prop="status" label="状态" align="center"></el-table-column>
+        <el-table-column label="操作" align="center">
           <template #default="record">
               <i class="el-icon-delete" href="" @click.prevent="deleteHandler(record.row.id)"></i> &nbsp;
 							<i class="el-icon-edit-outline" href="" @click.prevent="editHandler(record.row)"></i> &nbsp;
-              <a href="" @click.prevent="toDetailsHandler(record.row)">详情</a>
+              <a href="" @click.prevent="toDetailsHandler(record.row)"><i class="el-icon-more"></i></a>
           </template>
         </el-table-column>
       </el-table>
@@ -31,6 +31,12 @@
         <el-form-item label="手机号" label-width="100px" prop="telephone">
           <el-input v-model="customer.telephone" auto-complete="off"></el-input>
         </el-form-item>
+         <el-form-item label="密码" label-width="100px" prop="password">
+          <el-input v-model="customer.password" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="照片" label-width="100px" prop="photo">
+          <el-input v-model="customer.photo" auto-complete="off"></el-input>
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button size="small" @click="closeModal">取 消</el-button>
@@ -38,6 +44,12 @@
       </div>
     </el-dialog>
     <!-- /模态框 -->
+    <!-- 分页 -->
+    <el-pagination
+    layout="prev, pager, next"
+    :total="50">
+    </el-pagination>
+    <!-- /分页 -->
   </div>
 </template>
 <script>
@@ -54,6 +66,9 @@ export default {
         ],
         telephone: [
           { required: true, message: '请输入手机号', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
         ]
       }
     }
@@ -74,7 +89,7 @@ export default {
       // this.$router.push("/customerDetails")
       this.$router.push({
         path:"/customer/details",
-        query:{id:customer.id}
+        query:{customer:customer}
       })
     },
     handleSelectionChange(val) {

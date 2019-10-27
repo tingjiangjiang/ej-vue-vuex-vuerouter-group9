@@ -48,6 +48,7 @@ service.interceptors.response.use(
     response.status = data.status;
     response.statusText = data.message;
     response.data = data.data;
+    
 
     if (data.status !== 200) {
       Message({
