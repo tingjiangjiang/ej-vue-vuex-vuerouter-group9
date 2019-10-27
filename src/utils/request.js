@@ -95,5 +95,14 @@ export function post_array(url,data){
     }
   })
 }
+export function geta(url,data){
+  return service.get(url,{params:{waiterId:data.waiterId,orderId:data.orderId}},{
+    timeout:10000,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+  })
+}
 
 export default service

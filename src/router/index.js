@@ -143,16 +143,90 @@ export const asyncRoutes = [
   },
   {
     path: '/order',
-    component: Layout,
+    component:Layout,
     children: [
       {
         path: 'list',
-        component: () => import('@/pages/order/List'),
+        component:() => import('@/pages/order/List'),
         name: 'order',
-        meta: { title: '订单管理', icon: 'form' }
+        meta: { title: '订单管理', icon: 'form' },
+      },
+      {
+        path:'orderDetails',
+        hidden:true,
+        component:() => import('@/pages/order/orderDetails'),
+        meta: { title: '订单详情'},
+        name: 'orderDetails',
       }
     ]
   },
+  // {
+  //   path: '/order',
+  //       meta: { title: '订单管理', icon: 'form' },
+  //   component: Layout, 
+  //   children: [
+  //     {
+  //       path: 'list',
+  //       component: () => import('@/pages/order/List'),
+  //       name:"list",
+  //       meta: { title: '订单管理', icon: 'form' },
+  //       children:[
+  //         {
+  //           path: 'AllOrder',
+  //           component: () => import('@/pages/order/AllOrder'),
+  //           name: 'AllOrder',
+  //           meta: { title: '全部订单', icon: 'form' }, 
+  //         },
+  //         {
+  //           hidden:true,
+  //           path: 'WaitPay',
+  //           component: () => import('@/pages/order/WaitPay'),
+  //           name: 'WaitPay',
+  //           meta: { title: '待支付', icon: 'form' }, 
+  //         },
+  //         {
+  //           path: 'WaitSend',
+  //           hidden:true,
+
+  //           component: () => import('@/pages/order/WaitSend'),
+  //           name: 'WaitSend',
+  //           meta: { title: '待派单', icon: 'form' }, 
+  //         },
+  //         {
+  //           hidden:true,
+  //           path: 'WaitReceive',
+  //           component: () => import('@/pages/order/WaitReceive'),
+  //           name: 'WaitReceive',
+  //           meta: { title: '待接单', icon: 'form' }, 
+  //         },
+  //         {
+  //           hidden:true,
+  //           path: 'WaitService',
+  //           component: () => import('@/pages/order/WaitService'),
+  //           name: 'WaitService',
+  //           meta: { title: '待服务', icon: 'form' }, 
+  //         },
+  //         {
+  //           hidden:true,
+  //           path: 'WaitSure',
+  //           component: () => import('@/pages/order/WaitSure'),
+  //           name: 'WaitSure',
+  //           meta: { title: '待确认', icon: 'form' }, 
+  //         },
+  //         {
+  //           hidden:true,
+  //           path: 'Complate',
+  //           component: () => import('@/pages/order/Complate'),
+  //           name: 'Complate',
+  //           meta: { title: '已完成', icon: 'form' }, 
+  //         },
+  //       ]              
+  //     },
+      
+     
+     
+  //   ]
+  // },
   {
     path: '/waiter',
     component: Layout,
