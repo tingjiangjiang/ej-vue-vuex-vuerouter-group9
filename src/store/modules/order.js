@@ -1,4 +1,5 @@
 import {post,post_array,geta} from '@/utils/request'
+import request from '@/utils/request'
 import { stat } from 'fs'
 import { param } from '@/utils'
 import axios from 'axios'
